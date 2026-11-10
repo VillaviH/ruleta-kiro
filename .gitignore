@@ -1,0 +1,8 @@
+# Datos reales de participantes: nunca al repo público
+*.xlsx
+*.xls
+*.csv
+participantes*
+ganadores*
+
+.DS_Store

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruleta Kiro · AWS Event</title>
+<link rel="icon" href="kiro.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <img src="kiro.svg" alt="Kiro" class="logo">
+  <div>
+    <h1>Ruleta Kiro</h1>
+    <p class="sub">Sorteo para quienes llegaron hasta el final</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="stats">
+    <div><b id="stTotal">0</b><span>Participantes</span></div>
+    <div><b id="stLeft">0</b><span>En la ruleta</span></div>
+    <div><b id="stWin">0</b><span>Ganadores</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="stage">
+    <div class="ticker" id="ticker">Carga el Excel para comenzar</div>
+    <div class="wheel-wrap">
+      <canvas id="wheel" width="900" height="900"></canvas>
+    </div>
+    <button id="spinBtn" class="spin" disabled>GIRAR</button>
+    <div class="hint">Atajo: barra espaciadora</div>
+  </section>
+
+  <aside class="panel">
+    <div class="box" id="drop">
+      <h2>Participantes</h2>
+      <p id="fileInfo" class="muted">Arrastra aquí el Excel (.xlsx / .xls / .csv) o usa el botón.</p>
+      <div class="row">
+        <label class="btn" for="file">Cargar Excel</label>
+        <input type="file" id="file" accept=".xlsx,.xls,.csv" hidden>
+        <button class="btn ghost" id="demoBtn" title="Genera 100 participantes de prueba">Datos de prueba</button>
+      </div>
+    </div>
+
+    <div class="box grow">
+      <div class="row between">
+        <h2>Ganadores</h2>
+        <div class="row">
+          <button class="btn ghost small" id="csvBtn">Descargar CSV</button>
+          <button class="btn ghost small" id="mailBtn" title="Descarga el CSV y abre tu correo con el resumen">Enviar por correo</button>
+          <button class="btn ghost small danger" id="resetBtn">Reiniciar sorteo</button>
+        </div>
+      </div>
+      <ol id="winners" class="winners"></ol>
+      <div id="absentWrap" class="muted small" hidden>Ausentes descartados: <span id="absentList"></span></div>
+    </div>
+
+    <label class="muted small mute"><input type="checkbox" id="mute"> Silenciar sonido</label>
+  </aside>
+</main>
+
+<div class="overlay" id="overlay" hidden>
+  <canvas id="confetti"></canvas>
+  <div class="modal">
+    <img src="kiro.svg" alt="" class="modal-logo">
+    <div class="modal-title">¡Tenemos ganador!</div>
+    <div class="modal-name" id="mName"></div>
+    <div class="modal-num" id="mNum"></div>
+    <div class="row center">
+      <button class="btn" id="okBtn">Confirmar</button>
+      <button class="btn ghost" id="absentBtn" title="Lo saca de la ruleta sin contarlo como ganador">No está presente</button>
+    </div>
+  </div>
+</div>
+
+<script src="xlsx.full.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

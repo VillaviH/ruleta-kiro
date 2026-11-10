@@ -58,7 +58,7 @@ El logo de Kiro es una marca de Amazon Web Services; este proyecto es independie
 
 ## Autor
 
-**Hernán Villavicencio** · AWS User Group Quito · [linkedin.com/in/hvillavicencio](https://linkedin.com/in/hvillavicencio)
+**Hernán Villavicencio** · Lead AWS User Group Quito · [linkedin.com/in/hvillavicencio](https://linkedin.com/in/hvillavicencio)
 
 ## Licencia
 
